@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursorSpotlight();
   initTypewriter();
   initScrollEffects();
+  initTimelineMoon();
   initSectionSpy();
   initStatsCounter();
   initProjectFilters();
@@ -246,6 +247,89 @@ function initScrollEffects() {
       }
     }
   });
+}
+
+/* ==========================================================================
+   4B. TIMELINE DESCENDING MOON EFFECT
+   ========================================================================== */
+function initTimelineMoon() {
+  const container = document.querySelector('.timeline-container');
+  const moon = document.getElementById('timeline-moon');
+  const spineFill = document.getElementById('timeline-spine-fill');
+  if (!container || !moon || !spineFill) return;
+
+  const items = container.querySelectorAll('.timeline-item');
+
+  let currentY = 10;
+  let targetY = 10;
+  let isTicking = false;
+
+  function calculateTarget() {
+    const rect = container.getBoundingClientRect();
+    const windowH = window.innerHeight;
+
+    // Viewport triggers:
+    // Starts when top of container approaches 60% down viewport
+    // Reaches bottom when bottom of container reaches 35% from viewport top
+    const startTrigger = windowH * 0.60;
+    const endTrigger = windowH * 0.35;
+    const totalScrollRange = rect.height + (startTrigger - endTrigger);
+    const scrolled = startTrigger - rect.top;
+
+    let progress = totalScrollRange > 0 ? scrolled / totalScrollRange : 0;
+    progress = Math.max(0, Math.min(1, progress));
+
+    const startY = 10;
+    const endY = Math.max(startY, rect.height - 12);
+    targetY = startY + progress * (endY - startY);
+  }
+
+  function update() {
+    // Smooth lerp (0.16) for buttery, fluid cosmic travel
+    currentY += (targetY - currentY) * 0.16;
+
+    if (Math.abs(targetY - currentY) < 0.2) {
+      currentY = targetY;
+    }
+
+    moon.style.transform = `translate3d(-50%, ${currentY}px, 0)`;
+    spineFill.style.height = `${Math.max(0, currentY - 10)}px`;
+
+    // Activate/illuminate nodes as the moon passes them
+    items.forEach((item) => {
+      const node = item.querySelector('.timeline-node');
+      if (!node) return;
+      const nodeCenterY = item.offsetTop + node.offsetTop + (node.offsetHeight / 2);
+      if (currentY >= nodeCenterY - 4) {
+        node.classList.add('active');
+      } else {
+        node.classList.remove('active');
+      }
+    });
+
+    if (Math.abs(targetY - currentY) > 0.1) {
+      requestAnimationFrame(update);
+    } else {
+      isTicking = false;
+    }
+  }
+
+  function onScrollOrResize() {
+    calculateTarget();
+    if (!isTicking) {
+      isTicking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize, { passive: true });
+
+  // Initial calculation and layout sync
+  calculateTarget();
+  currentY = targetY;
+  moon.style.transform = `translate3d(-50%, ${currentY}px, 0)`;
+  spineFill.style.height = `${Math.max(0, currentY - 10)}px`;
 }
 
 /* ==========================================================================

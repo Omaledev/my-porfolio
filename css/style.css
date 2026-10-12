@@ -1098,6 +1098,68 @@ img, svg {
   opacity: 0.35;
 }
 
+.timeline-spine-fill {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(180deg, #38bdf8 0%, #c08cff 65%, #ffffff 100%);
+  box-shadow: 0 0 10px rgba(192, 140, 255, 0.95), 0 0 18px rgba(56, 189, 248, 0.6);
+  z-index: 1;
+  border-radius: 2px;
+  pointer-events: none;
+  will-change: height;
+}
+
+.timeline-moon {
+  position: absolute;
+  top: 0;
+  left: 31px;
+  width: 34px;
+  height: 34px;
+  transform: translate3d(-50%, 10px, 0);
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.moon-glow-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(192, 140, 255, 0.35) 45%, rgba(56, 189, 248, 0.18) 65%, transparent 80%);
+  border-radius: 50%;
+  animation: moonAuraPulse 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes moonAuraPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 1;
+  }
+}
+
+.moon-svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 14px rgba(192, 140, 255, 0.95)) drop-shadow(0 0 22px rgba(56, 189, 248, 0.5));
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 .timeline-item {
   position: relative;
   padding-left: 80px;
@@ -1125,6 +1187,13 @@ img, svg {
 .timeline-item:hover .timeline-node {
   transform: scale(1.3);
   background: #c08cff;
+}
+
+.timeline-node.active {
+  background: #c08cff;
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(192, 140, 255, 0.95), 0 0 28px rgba(56, 189, 248, 0.65);
+  transform: scale(1.25);
 }
 
 .timeline-card {
@@ -1253,6 +1322,22 @@ img, svg {
 @media (max-width: 600px) {
   .timeline-spine {
     left: 15px;
+  }
+  .timeline-spine-fill {
+    left: 15px;
+  }
+  .timeline-moon {
+    left: 16px;
+    width: 28px;
+    height: 28px;
+  }
+  .moon-svg {
+    width: 24px;
+    height: 24px;
+  }
+  .moon-glow-aura {
+    width: 38px;
+    height: 38px;
   }
   .timeline-node {
     left: 6px;
