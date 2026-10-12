@@ -61,7 +61,7 @@ function initStarCanvas() {
 
       // Dainty, crisp pinpoint stars
       this.radius = Math.random() * 0.9 + 0.6;
-      this.baseAlpha = Math.random() * 0.35 + 0.55;
+      this.baseAlpha = Math.random() * 0.3 + 0.65;
       this.twinklePhase = Math.random() * Math.PI * 2;
       this.twinkleSpeed = Math.random() * 0.03 + 0.015;
 
@@ -100,7 +100,7 @@ function initStarCanvas() {
     }
 
     draw() {
-      const currentAlpha = Math.min(1, Math.max(0.25, this.baseAlpha + Math.sin(this.twinklePhase) * 0.25));
+      const currentAlpha = Math.min(1, Math.max(0.35, this.baseAlpha + Math.sin(this.twinklePhase) * 0.25));
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       ctx.fillStyle = `${this.baseColor} ${currentAlpha})`;
@@ -123,12 +123,12 @@ function initStarCanvas() {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < maxDistance) {
-          const lineAlpha = (1 - dist / maxDistance) * 0.25;
+          const lineAlpha = (1 - dist / maxDistance) * 0.35;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.strokeStyle = `rgba(180, 125, 250, ${lineAlpha})`;
-          ctx.lineWidth = 0.45;
+          ctx.lineWidth = 0.55;
           ctx.stroke();
         }
       }
