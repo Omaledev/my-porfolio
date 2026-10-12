@@ -55,9 +55,9 @@ function initStarCanvas() {
       this.y = Math.random() * height;
       this.vx = (Math.random() - 0.5) * 0.4;
       this.vy = (Math.random() - 0.5) * 0.4;
-      this.radius = Math.random() * 1.6 + 0.6;
-      this.baseColor = Math.random() > 0.4 ? 'rgba(0, 242, 254,' : 'rgba(157, 78, 221,';
-      this.alpha = Math.random() * 0.5 + 0.2;
+      this.radius = Math.random() * 1.5 + 0.5;
+      this.baseColor = Math.random() > 0.4 ? 'rgba(192, 140, 255,' : 'rgba(255, 255, 255,';
+      this.alpha = Math.random() * 0.4 + 0.15;
     }
 
     update() {
@@ -109,8 +109,8 @@ function initStarCanvas() {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0, 242, 254, ${lineAlpha})`;
-          ctx.lineWidth = 0.6;
+          ctx.strokeStyle = `rgba(118, 60, 172, ${lineAlpha * 0.8})`;
+          ctx.lineWidth = 0.5;
           ctx.stroke();
         }
       }
