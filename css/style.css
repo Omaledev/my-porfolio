@@ -144,7 +144,7 @@ img, svg {
   width: 100vw;
   height: 100vh;
   z-index: -2;
-  opacity: 0.9;
+  opacity: 0.65;
   pointer-events: none;
 }
 

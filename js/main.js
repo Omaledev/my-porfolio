@@ -27,9 +27,9 @@ function initStarCanvas() {
 
   let width, height;
   let particles = [];
-  const particleCount = window.innerWidth < 768 ? 65 : 125;
-  const maxDistance = 140;
-  let mouse = { x: null, y: null, radius: 120 };
+  const particleCount = window.innerWidth < 768 ? 50 : 95;
+  const maxDistance = 115;
+  let mouse = { x: null, y: null, radius: 100 };
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -53,25 +53,25 @@ function initStarCanvas() {
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      // Faster, lively velocity
-      const speed = Math.random() * 1.0 + 0.8;
+      // Smooth, natural drift speed (moderate & fluid)
+      const speed = Math.random() * 0.35 + 0.35;
       const angle = Math.random() * Math.PI * 2;
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
 
-      // Clearly visible stars
-      this.radius = Math.random() * 2.2 + 1.2;
-      this.baseAlpha = Math.random() * 0.35 + 0.65;
+      // Dainty, crisp pinpoint stars
+      this.radius = Math.random() * 0.9 + 0.6;
+      this.baseAlpha = Math.random() * 0.35 + 0.55;
       this.twinklePhase = Math.random() * Math.PI * 2;
-      this.twinkleSpeed = Math.random() * 0.04 + 0.02;
+      this.twinkleSpeed = Math.random() * 0.03 + 0.015;
 
       const rand = Math.random();
-      if (rand < 0.45) {
-        this.baseColor = 'rgba(255, 255, 255,'; // Glowing white star
-      } else if (rand < 0.8) {
+      if (rand < 0.5) {
+        this.baseColor = 'rgba(255, 255, 255,'; // Pure white star
+      } else if (rand < 0.85) {
         this.baseColor = 'rgba(192, 140, 255,'; // Lavender purple star
       } else {
-        this.baseColor = 'rgba(56, 189, 248,'; // Electric cyan starlight
+        this.baseColor = 'rgba(56, 189, 248,'; // Cyan pinpoint
       }
     }
 
@@ -85,14 +85,14 @@ function initStarCanvas() {
       if (this.y < 0) this.y = height;
       if (this.y > height) this.y = 0;
 
-      // Mouse interactive repelling
+      // Subtle mouse interaction
       if (mouse.x !== null && mouse.y !== null) {
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < mouse.radius) {
           const repelAngle = Math.atan2(dy, dx);
-          const force = (1 - dist / mouse.radius) * 3;
+          const force = (1 - dist / mouse.radius) * 1.5;
           this.x -= Math.cos(repelAngle) * force;
           this.y -= Math.sin(repelAngle) * force;
         }
@@ -100,19 +100,11 @@ function initStarCanvas() {
     }
 
     draw() {
-      const currentAlpha = Math.min(1, Math.max(0.3, this.baseAlpha + Math.sin(this.twinklePhase) * 0.25));
+      const currentAlpha = Math.min(1, Math.max(0.25, this.baseAlpha + Math.sin(this.twinklePhase) * 0.25));
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       ctx.fillStyle = `${this.baseColor} ${currentAlpha})`;
       ctx.fill();
-
-      // Soft glow for larger stars
-      if (this.radius > 2.2) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `${this.baseColor} ${currentAlpha * 0.25})`;
-        ctx.fill();
-      }
     }
   }
 
@@ -123,7 +115,7 @@ function initStarCanvas() {
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // Draw bright, clearly visible connecting constellation web
+    // Draw delicate, fine connecting web
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -131,12 +123,12 @@ function initStarCanvas() {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < maxDistance) {
-          const lineAlpha = (1 - dist / maxDistance) * 0.42;
+          const lineAlpha = (1 - dist / maxDistance) * 0.25;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.strokeStyle = `rgba(180, 125, 250, ${lineAlpha})`;
-          ctx.lineWidth = 0.8;
+          ctx.lineWidth = 0.45;
           ctx.stroke();
         }
       }
