@@ -163,10 +163,10 @@ function initTypewriter() {
   if (!textEl) return;
 
   const phrases = [
-    'Enterprise API Architect & Backend Engineer',
-    'Specialist in Laravel, Livewire & React',
-    'Automating Payment Webhooks (Paystack & Monnify)',
-    'Building Robust Multi-Fleet Transit Software',
+    'Enterprise REST APIs & Backend Systems',
+    'Full Stack Laravel, Livewire & React',
+    'Automating Paystack & Monnify Webhooks',
+    'Multi-Fleet Transit APIs & Software',
     'Mentoring 90+ Next-Gen Developers'
   ];
 
