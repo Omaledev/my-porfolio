@@ -1114,46 +1114,50 @@ img, svg {
   justify-content: center;
 }
 
-.highlight-box {
+.about-pillar {
   display: flex;
   align-items: flex-start;
   gap: 16px;
   padding: 18px 20px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.025);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   transition: var(--transition-fast);
 }
 
-.highlight-box:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(0, 242, 254, 0.3);
+.about-pillar:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 242, 254, 0.25);
   transform: translateX(4px);
 }
 
-.highlight-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: rgba(0, 242, 254, 0.1);
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
   color: var(--accent-cyan);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.2);
   flex-shrink: 0;
+  line-height: 1.2;
+  margin-top: 2px;
 }
 
-.highlight-info h4 {
-  font-size: 1rem;
+.about-pillar h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 4px;
 }
 
-.highlight-info p {
-  font-size: 0.85rem;
+.about-pillar p {
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 0;
 }
 
 @media (max-width: 900px) {
