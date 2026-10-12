@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="eduBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06181f"/>
+      <stop offset="50%" stop-color="#0b2c36"/>
+      <stop offset="100%" stop-color="#041217"/>
+    </linearGradient>
+    <filter id="glowEdu" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#eduBg)"/>
+  <circle cx="680" cy="90" r="130" fill="#06b6d4" opacity="0.15" filter="url(#glowEdu)"/>
+  <circle cx="120" cy="380" r="140" fill="#10b981" opacity="0.12" filter="url(#glowEdu)"/>
+
+  <!-- Browser Frame -->
+  <rect x="40" y="40" width="720" height="400" rx="16" fill="#071d24" stroke="#12414f" stroke-width="2"/>
+  <path d="M 40 56 Q 40 40 56 40 L 744 40 Q 760 40 760 56 L 760 84 L 40 84 Z" fill="#0c2b36"/>
+  <circle cx="70" cy="62" r="6" fill="#ff5f56"/>
+  <circle cx="90" cy="62" r="6" fill="#ffbd2e"/>
+  <circle cx="110" cy="62" r="6" fill="#27c93f"/>
+  <rect x="250" y="52" width="300" height="20" rx="6" fill="#041318" stroke="#1c5566" stroke-width="1"/>
+  <text x="400" y="66" fill="#67e8f9" font-family="system-ui" font-size="11" text-anchor="middle">edu360sms.com/dashboard</text>
+
+  <!-- Content Layout -->
+  <g transform="translate(64, 104)">
+    <rect x="0" y="0" width="200" height="70" rx="10" fill="#0e3540" stroke="#1c5e73" stroke-width="1"/>
+    <text x="16" y="26" fill="#67e8f9" font-family="system-ui" font-size="11">TOTAL STUDENTS</text>
+    <text x="16" y="52" fill="#ffffff" font-family="system-ui" font-weight="bold" font-size="20">14,850+</text>
+
+    <rect x="220" y="0" width="210" height="70" rx="10" fill="#0e3540" stroke="#1c5e73" stroke-width="1"/>
+    <text x="236" y="26" fill="#67e8f9" font-family="system-ui" font-size="11">AUTOMATED SMS SENT</text>
+    <text x="236" y="52" fill="#10b981" font-family="system-ui" font-weight="bold" font-size="20">340,200</text>
+
+    <rect x="450" y="0" width="222" height="70" rx="10" fill="#0e3540" stroke="#1c5e73" stroke-width="1"/>
+    <text x="466" y="26" fill="#67e8f9" font-family="system-ui" font-size="11">DELIVERY RATE</text>
+    <text x="466" y="52" fill="#38bdf8" font-family="system-ui" font-weight="bold" font-size="20">99.8% High-Speed</text>
+  </g>
+
+  <!-- Main section -->
+  <g transform="translate(64, 192)">
+    <rect x="0" y="0" width="410" height="228" rx="10" fill="#09222a" stroke="#144654" stroke-width="1"/>
+    <text x="20" y="32" fill="#ffffff" font-family="system-ui" font-weight="bold" font-size="14">School Management &amp; Parent Broadcast Engine</text>
+    
+    <!-- Table Mockup -->
+    <rect x="20" y="54" width="370" height="34" rx="6" fill="#0f3440"/>
+    <text x="32" y="76" fill="#94a3b8" font-family="system-ui" font-size="11">CLASS</text>
+    <text x="110" y="76" fill="#94a3b8" font-family="system-ui" font-size="11">TRIGGER</text>
+    <text x="230" y="76" fill="#94a3b8" font-family="system-ui" font-size="11">STATUS</text>
+
+    <rect x="20" y="96" width="370" height="34" rx="6" fill="#071a21"/>
+    <text x="32" y="118" fill="#e2e8f0" font-family="system-ui" font-size="11">Grade 12A</text>
+    <text x="110" y="118" fill="#cbd5e1" font-family="system-ui" font-size="11">Fee Invoice Sent</text>
+    <text x="230" y="118" fill="#10b981" font-family="system-ui" font-weight="bold" font-size="11">✓ Delivered (85/85)</text>
+
+    <rect x="20" y="138" width="370" height="34" rx="6" fill="#071a21"/>
+    <text x="32" y="160" fill="#e2e8f0" font-family="system-ui" font-size="11">Grade 10B</text>
+    <text x="110" y="160" fill="#cbd5e1" font-family="system-ui" font-size="11">Attendance Alert</text>
+    <text x="230" y="160" fill="#10b981" font-family="system-ui" font-weight="bold" font-size="11">✓ Instant SMS (12)</text>
+
+    <rect x="20" y="180" width="370" height="34" rx="6" fill="#071a21"/>
+    <text x="32" y="202" fill="#e2e8f0" font-family="system-ui" font-size="11">All Staff</text>
+    <text x="110" y="202" fill="#cbd5e1" font-family="system-ui" font-size="11">Staff Meeting Notice</text>
+    <text x="230" y="202" fill="#38bdf8" font-family="system-ui" font-weight="bold" font-size="11">✓ Dispatched</text>
+  </g>
+
+  <g transform="translate(494, 192)">
+    <rect x="0" y="0" width="242" height="228" rx="10" fill="#09222a" stroke="#144654" stroke-width="1"/>
+    <text x="18" y="32" fill="#67e8f9" font-family="system-ui" font-weight="bold" font-size="13">SMS Gateway &amp; Queues</text>
+    <text x="18" y="56" fill="#94a3b8" font-family="system-ui" font-size="11">Asynchronous Laravel queues deliver instant SMS via telecom telco gateways.</text>
+    
+    <rect x="18" y="90" width="206" height="40" rx="8" fill="#103b47"/>
+    <text x="28" y="115" fill="#e2e8f0" font-family="system-ui" font-size="11">📱 Telemetry &amp; DND Bypass</text>
+
+    <rect x="18" y="140" width="206" height="40" rx="8" fill="#103b47"/>
+    <text x="28" y="165" fill="#e2e8f0" font-family="system-ui" font-size="11">💳 Termly Tuition Ledger</text>
+  </g>
+</svg>

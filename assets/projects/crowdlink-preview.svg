@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="clBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f111e"/>
+      <stop offset="50%" stop-color="#181e36"/>
+      <stop offset="100%" stop-color="#0b0d17"/>
+    </linearGradient>
+    <linearGradient id="clGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="glowCl" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#clBg)"/>
+  <circle cx="680" cy="120" r="140" fill="#10b981" opacity="0.14" filter="url(#glowCl)"/>
+  <circle cx="140" cy="360" r="160" fill="#6366f1" opacity="0.15" filter="url(#glowCl)"/>
+
+  <!-- Browser Frame -->
+  <rect x="40" y="40" width="720" height="400" rx="16" fill="#101424" stroke="#222b4d" stroke-width="2"/>
+  <path d="M 40 56 Q 40 40 56 40 L 744 40 Q 760 40 760 56 L 760 84 L 40 84 Z" fill="#182038"/>
+  <circle cx="70" cy="62" r="6" fill="#ff5f56"/>
+  <circle cx="90" cy="62" r="6" fill="#ffbd2e"/>
+  <circle cx="110" cy="62" r="6" fill="#27c93f"/>
+  <rect x="250" y="52" width="300" height="20" rx="6" fill="#0c101c" stroke="#2f3b69" stroke-width="1"/>
+  <text x="400" y="66" fill="#a5b4fc" font-family="system-ui" font-size="11" text-anchor="middle">crowdlink.com/campaigns/active</text>
+
+  <!-- Banner -->
+  <g transform="translate(64, 104)">
+    <rect x="0" y="0" width="672" height="66" rx="10" fill="#18213b" stroke="#293661" stroke-width="1"/>
+    <text x="24" y="28" fill="#ffffff" font-family="system-ui" font-weight="bold" font-size="15">Crowdlink — Crowdfunding &amp; Community Backing Platform</text>
+    <text x="24" y="48" fill="#94a3b8" font-family="system-ui" font-size="12">Verified Campaigns • Real-time Webhook Settlements • Paystack Integration</text>
+    <rect x="540" y="16" width="108" height="34" rx="6" fill="url(#clGreen)"/>
+    <text x="594" y="38" fill="#06241a" font-family="system-ui" font-weight="bold" font-size="12" text-anchor="middle">Live Platform</text>
+  </g>
+
+  <!-- Content Row -->
+  <g transform="translate(64, 186)">
+    <!-- Campaign 1 -->
+    <rect x="0" y="0" width="324" height="230" rx="10" fill="#13192e" stroke="#242f57" stroke-width="1"/>
+    <rect x="20" y="20" width="284" height="28" rx="6" fill="#1e2747"/>
+    <text x="32" y="38" fill="#60a5fa" font-family="system-ui" font-weight="bold" font-size="12">Community Tech Innovation Grant</text>
+    
+    <text x="20" y="76" fill="#ffffff" font-family="system-ui" font-weight="bold" font-size="18">₦ 12,450,000</text>
+    <text x="20" y="96" fill="#94a3b8" font-family="system-ui" font-size="11">raised of ₦ 15,000,000 goal (83%)</text>
+    
+    <!-- Progress bar -->
+    <rect x="20" y="110" width="284" height="8" rx="4" fill="#1e2747"/>
+    <rect x="20" y="110" width="235" height="8" rx="4" fill="url(#clGreen)"/>
+
+    <text x="20" y="148" fill="#cbd5e1" font-family="system-ui" font-size="11">✓ 428 Backers Worldwide</text>
+    <text x="20" y="172" fill="#cbd5e1" font-family="system-ui" font-size="11">✓ Automated Webhook Payout</text>
+    <text x="20" y="196" fill="#cbd5e1" font-family="system-ui" font-size="11">✓ Multi-tier reward fulfillment</text>
+  </g>
+
+  <g transform="translate(412, 186)">
+    <!-- Campaign 2 / Payment Architecture -->
+    <rect x="0" y="0" width="324" height="230" rx="10" fill="#13192e" stroke="#242f57" stroke-width="1"/>
+    <rect x="20" y="20" width="284" height="28" rx="6" fill="#1e2747"/>
+    <text x="32" y="38" fill="#34d399" font-family="system-ui" font-weight="bold" font-size="12">Payment Security &amp; Ledger</text>
+
+    <text x="20" y="74" fill="#e2e8f0" font-family="system-ui" font-weight="bold" font-size="13">High-Volume Transaction Flow</text>
+    <text x="20" y="96" fill="#94a3b8" font-family="system-ui" font-size="11">Webhook idempotency check prevents double billing during peak traffic.</text>
+
+    <rect x="20" y="120" width="284" height="34" rx="6" fill="#18213b"/>
+    <text x="30" y="142" fill="#34d399" font-family="Courier, monospace" font-size="11">✔ HMAC SHA512 Signature OK</text>
+
+    <rect x="20" y="164" width="284" height="34" rx="6" fill="#18213b"/>
+    <text x="30" y="186" fill="#60a5fa" font-family="Courier, monospace" font-size="11">✔ Instant Escrow Allocation</text>
+  </g>
+</svg>
